@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1000</width>
+    <height>700</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Sorting Algorithm Simulator</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* Main Styles */
+    QMainWindow {
+        background-color: #f8f9fa;
+    }
+    
+    /* Algorithm Buttons */
+    QPushButton.algorithmButton {
+        padding: 8px 12px;
+        font-size: 14px;
+        min-height: 36px;
+        text-align: left;
+        border: none;
+        background: #f8f9fa;
+        color: #212529;
+        margin: 0px;
+    }
+    
+    QPushButton.algorithmButton:hover {
+        background-color: #e9ecef;
+    }
+    
+    QPushButton.algorithmButton:pressed {
+        background-color: #dee2e6;
+    }
+    
+    QPushButton.algorithmButton[selected=&quot;true&quot;] {
+        background: #e9ecef;
+    }
+    
+    /* Scroll Area */
+    QScrollArea#algorithmScrollArea {
+        background: #f1f3f5;
+        border: none;
+    }
+    
+    /* Line Edit */
+    QLineEdit#addAlgorithmTextBox {
+        padding: 8px 12px;
+        font-size: 14px;
+        min-height: 36px;
+        border: 1px solid #dee2e6;
+        background: white;
+    }
+    
+    /* Add Button */
+    QPushButton#addAlgorithmButton {
+        padding: 8px 12px;
+        font-size: 14px;
+        min-height: 36px;
+        border: 1px solid #dee2e6;
+        background: #f8f9fa;
+        color: #212529;
+    }
+    
+    QPushButton#addAlgorithmButton:hover {
+        background-color: #e9ecef;
+    }
+    
+    QPushButton#addAlgorithmButton:pressed {
+        background-color: #dee2e6;
+    }
+    
+    /* Status Label */
+    QLabel#statusLabel {
+        font-size: 16px;
+        color: #6c757d;
+        padding: 10px;
+        background: white;
+        border-bottom: 1px solid #dee2e6;
+    }
+    
+    /* Plot Widget */
+    QWidget#plotWidget {
+        background: white;
+    }
+    
+    /* Control Buttons */
+    QPushButton#editAlgorithmButton,
+    QPushButton#makeButton,
+    QPushButton#determineComplexityButton,
+    QPushButton#visualizeButton,
+    QPushButton#deleteButton {
+        padding: 8px 12px;
+        font-size: 14px;
+        min-height: 36px;
+    }
+    
+    /* Edit Button */
+    QPushButton#editAlgorithmButton {
+        border: 1px solid #dee2e6;
+        background: #d4edda;
+        color: #155724;
+    }
+    
+    QPushButton#editAlgorithmButton:hover {
+        background-color: #c3e6cb;
+    }
+    
+    QPushButton#editAlgorithmButton:pressed {
+        background-color: #b1dfbb;
+    }
+    
+    /* Make Button */
+    QPushButton#makeButton {
+        border: 1px solid #dee2e6;
+        background: #d4edda;
+        color: #155724;
+    }
+    
+    QPushButton#makeButton:hover {
+        background-color: #c3e6cb;
+    }
+    
+    QPushButton#makeButton:pressed {
+        background-color: #b1dfbb;
+    }
+    
+    /* Complexity Button */
+    QPushButton#determineComplexityButton {
+        border: 1px solid #dee2e6;
+        background: #d1ecf1;
+        color: #0c5460;
+    }
+    
+    QPushButton#determineComplexityButton:hover {
+        background-color: #bee5eb;
+    }
+    
+    QPushButton#determineComplexityButton:pressed {
+        background-color: #abdde5;
+    }
+    
+    /* Visualize Button */
+    QPushButton#visualizeButton {
+        border: 1px solid #dee2e6;
+        background: #d1ecf1;
+        color: #0c5460;
+    }
+    
+    QPushButton#visualizeButton:hover {
+        background-color: #bee5eb;
+    }
+    
+    QPushButton#visualizeButton:pressed {
+        background-color: #abdde5;
+    }
+    
+    /* Delete Button */
+    QPushButton#deleteButton {
+        border: 1px solid #dee2e6;
+        background: #f8d7da;
+        color: #721c24;
+    }
+    
+    QPushButton#deleteButton:hover {
+        background-color: #f5c6cb;
+    }
+    
+    QPushButton#deleteButton:pressed {
+        background-color: #f1b0b7;
+    }
+    
+    /* Slider */
+    QSlider::groove:horizontal {
+        height: 6px;
+        background: #e9ecef;
+        border-radius: 3px;
+    }
+    
+    QSlider::handle:horizontal {
+        width: 16px;
+        height: 16px;
+        margin: -5px 0;
+        background: #495057;
+        border-radius: 8px;
+    }
+    
+    QSlider::sub-page:horizontal {
+        background: #adb5bd;
+    }</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>800</width>
+     <height>700</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>100000</width>
+     <height>100000</height>
+    </size>
+   </property>
+   <layout class="QHBoxLayout" name="mainLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QScrollArea" name="algorithmScrollArea">
+      <property name="minimumSize">
+       <size>
+        <width>220</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>220</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>220</width>
+         <height>700</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="algorithmButtonsLayout">
+        <property name="spacing">
+         <number>5</number>
+        </property>
+        <property name="sizeConstraint">
+         <enum>QLayout::SetMinimumSize</enum>
+        </property>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="contentLayout">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item>
+       <layout class="QHBoxLayout" name="addAlgorithmLayout">
+        <property name="spacing">
+         <number>10</number>
+        </property>
+        <property name="leftMargin">
+         <number>10</number>
+        </property>
+        <property name="topMargin">
+         <number>5</number>
+        </property>
+        <property name="rightMargin">
+         <number>10</number>
+        </property>
+        <property name="bottomMargin">
+         <number>5</number>
+        </property>
+        <item>
+         <widget class="QLineEdit" name="addAlgorithmTextBox">
+          <property name="minimumSize">
+           <size>
+            <width>200</width>
+            <height>54</height>
+           </size>
+          </property>
+          <property name="placeholderText">
+           <string>Create new algorithm</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="addAlgorithmButton">
+          <property name="minimumSize">
+           <size>
+            <width>80</width>
+            <height>54</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Add</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QWidget" name="visualizationContainer" native="true">
+        <layout class="QVBoxLayout" name="visualizationLayout">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="statusLabel">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QWidget" name="plotWidget" native="true">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>1</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="controlPanelLayout">
+        <property name="spacing">
+         <number>10</number>
+        </property>
+        <property name="leftMargin">
+         <number>10</number>
+        </property>
+        <property name="topMargin">
+         <number>5</number>
+        </property>
+        <property name="rightMargin">
+         <number>10</number>
+        </property>
+        <property name="bottomMargin">
+         <number>5</number>
+        </property>
+        <item>
+         <widget class="QPushButton" name="editAlgorithmButton">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>54</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Edit Algorithm</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="makeButton">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>80</width>
+            <height>54</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Make</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="deleteButton">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>80</width>
+            <height>54</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Delete</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="determineComplexityButton">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>54</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Determine Complexity</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="visualizeButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>100</width>
+            <height>54</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Visualise</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSlider" name="arraySizeSlider">
+          <property name="minimumSize">
+           <size>
+            <width>100</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>100</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="minimum">
+           <number>10</number>
+          </property>
+          <property name="maximum">
+           <number>100</number>
+          </property>
+          <property name="value">
+           <number>50</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

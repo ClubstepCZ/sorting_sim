@@ -1,0 +1,9 @@
+{
+    "files": [
+        "mainwindow.py",
+        "form.ui",
+        "algorithm_manager.py",
+        "complex.py",
+        "visualization.py"
+    ]
+}

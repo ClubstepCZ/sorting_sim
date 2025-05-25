@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Cocktail Shaker",
+        "folder": "cocktail_shaker"
+    },
+    {
+        "name": "Shell Sort",
+        "folder": "shell_sort"
+    },
+    {
+        "name": "Gnome Sort",
+        "folder": "gnome_sort"
+    },
+    {
+        "name": "Comb Sort",
+        "folder": "comb_sort"
+    },
+    {
+        "name": "Pancake Sort",
+        "folder": "pancake_sort"
+    },
+    {
+        "name": "Cycle Sort",
+        "folder": "cycle_sort"
+    }
+]
